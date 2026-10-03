@@ -2,6 +2,10 @@
 
 A medical records app that any hospital can use.
 
+**Live site:** [https://medivault-0417.onrender.com](https://medivault-0417.onrender.com)
+
+> Hosted on Render's free plan, so the first visit after a period of inactivity can take 30–60 seconds to load.
+
 - **Doctors** sign up under one hospital (it can't be changed later), add patient visit records with diagnosis, vitals and prescriptions, and edit their own records. They see only the records they created.
 - **Patients** sign up with their email and see every record any doctor saved with that email. If there are none, they see "No records yet".
 - **Admin** (set in the database only) views all records read-only and manages the hospitals list (add, edit, activate / deactivate).
@@ -82,10 +86,10 @@ public/
 
 ## Deploying
 
-GitHub Pages can only host static files, so deploy this app to a Node host such as Render or Railway:
+The live site runs on [Render](https://render.com) as a Web Service connected to this repo. Every push to `main` redeploys it automatically. GitHub Pages can't be used because it only hosts static files.
 
 - Build command: `npm install`
 - Start command: `npm start`
-- Environment variables: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `APP_URL` (your deployed URL), `NODE_ENV=production`
+- Environment variables: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `APP_URL` (the deployed URL), `NODE_ENV=production`, `NODE_VERSION=22`
 
-Then add the deployed URL to Supabase's Site URL and Redirect URLs.
+In Supabase, **Authentication → URL Configuration** must list the deployed URL as the **Site URL** and `https://<your-app>.onrender.com/**` under **Redirect URLs**, so confirmation emails link to the live site.
