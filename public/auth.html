@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="nav-admin" href="/auth.html?as=admin">Admin</a>
+    </nav>
+  </header>
+
+  <main class="auth-wrap">
+    <h1 id="auth-title">Login</h1>
+    <p class="subtitle" id="auth-subtitle"></p>
+
+    <div class="card">
+      <div class="tabs" id="tabs">
+        <button type="button" data-tab="login" class="active">Login</button>
+        <button type="button" data-tab="signup">Sign up</button>
+      </div>
+
+      <div id="alert" class="alert" hidden></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-grid">
+          <div class="field span-all">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field span-all">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="span-all">
+            <button class="btn btn-block" type="submit">Login</button>
+          </div>
+        </div>
+      </form>
+
+      <form id="signup-form" novalidate hidden>
+        <div class="form-grid">
+          <div class="field span-all">
+            <label for="su-name">Full name <span class="req">*</span></label>
+            <input id="su-name" name="full_name" autocomplete="name" maxlength="120" required>
+          </div>
+          <div class="field">
+            <label for="su-email">Email <span class="req">*</span></label>
+            <input id="su-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="su-phone">Phone</label>
+            <input id="su-phone" name="phone" type="tel" autocomplete="tel" maxlength="20">
+          </div>
+          <div class="field">
+            <label for="su-password">Password <span class="req">*</span></label>
+            <input id="su-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+            <div class="hint">At least 8 characters</div>
+          </div>
+          <div class="field">
+            <label for="su-confirm">Confirm password <span class="req">*</span></label>
+            <input id="su-confirm" name="confirm" type="password" autocomplete="new-password" required>
+          </div>
+
+          <div class="field span-all" data-for="doctor">
+            <label for="su-hospital">Hospital <span class="req">*</span></label>
+            <select id="su-hospital" name="hospital_id">
+              <option value="">Loading hospitals…</option>
+            </select>
+            <div class="hint">You can only belong to one hospital, and it cannot be changed later.</div>
+          </div>
+          <div class="field" data-for="doctor">
+            <label for="su-specialization">Specialization</label>
+            <input id="su-specialization" name="specialization" maxlength="120">
+          </div>
+          <div class="field" data-for="doctor">
+            <label for="su-license">Medical license no.</label>
+            <input id="su-license" name="license_no" maxlength="60">
+          </div>
+
+          <div class="field" data-for="patient">
+            <label for="su-dob">Date of birth</label>
+            <input id="su-dob" name="dob" type="date">
+          </div>
+          <div class="field" data-for="patient">
+            <label for="su-gender">Gender</label>
+            <select id="su-gender" name="gender">
+              <option value="">Prefer not to say</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="span-all">
+            <button class="btn btn-block" type="submit">Create account</button>
+          </div>
+        </div>
+      </form>
+
+      <p class="auth-switch" id="patient-note" hidden>
+        Use the same email your doctor saved in your records, so they appear automatically.
+      </p>
+    </div>
+
+    <p class="auth-switch" id="role-switch"></p>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

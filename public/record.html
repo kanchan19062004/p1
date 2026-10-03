@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="topbar" id="topbar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a></header>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h1 id="record-title">Medical Record</h1>
+        <div class="subtitle" id="record-subtitle"></div>
+      </div>
+      <div class="filter-actions">
+        <a class="btn btn-secondary" id="back-link" href="/">Back to records</a>
+        <a class="btn" id="edit-link" href="#" hidden>Edit record</a>
+      </div>
+    </div>
+
+    <div id="alert" class="alert" hidden></div>
+    <div id="record"></div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/record-view.js"></script>
+</body>
+</html>

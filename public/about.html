@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/about.html" aria-current="page">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="nav-admin" href="/auth.html?as=admin">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>About Medi-Vault</h1>
+      <p>Moving healthcare from paper files locked in one hospital to records that follow the patient.</p>
+    </section>
+
+    <section class="section">
+      <div class="prose">
+        <p>
+          Healthcare in India is going digital fast. Electronic health records make care safer and better
+          coordinated: doctors see a patient's history at a glance, prescriptions are clear, and nothing is lost
+          between visits.
+        </p>
+        <p>
+          Yet most clinical data still sits in silos. Each hospital keeps its own files, and patients rarely get
+          access to them. They are left juggling paper reports from every doctor they have ever seen.
+        </p>
+        <p>
+          <strong>Medi-Vault</strong> changes that. Any hospital can use it. Doctors record each visit, and patients
+          can see every record written for them, from every hospital, in one place.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>How it works</h2>
+        <p>Three simple steps from the consultation room to the patient's screen.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Doctor joins their hospital</h3>
+          <p>A doctor signs up and picks the hospital they work at. Each doctor belongs to exactly one hospital.</p>
+        </div>
+        <div class="step">
+          <h3>Doctor records the visit</h3>
+          <p>After a consultation, the doctor adds the diagnosis, vitals, prescription and next visit date, along with the patient's email.</p>
+        </div>
+        <div class="step">
+          <h3>Patient sees their records</h3>
+          <p>The patient signs up with that same email and instantly sees every record any doctor has added for them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Privacy comes first</h2>
+        <p>Medical records are sensitive. Access is checked by the database itself, not only by the website.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </div>
+          <h3>Only the right people</h3>
+          <p>Doctors see only the records they wrote. Patients see only records with their confirmed email.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Full edit history</h3>
+          <p>Records are never deleted. Every edit keeps a copy of the previous version.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>
+          </div>
+          <h3>Verified accounts</h3>
+          <p>Every account confirms its email address before it can log in.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-band">
+        <h2>Ready to get started?</h2>
+        <p>Log in or create an account in under a minute.</p>
+        <div class="hero-actions">
+          <a class="btn btn-lg" href="/auth.html?as=doctor">Login as Doctor</a>
+          <a class="btn btn-lg btn-secondary" href="/auth.html?as=patient">Login as Patient</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Medi-Vault · Digital medical records</span>
+    <nav aria-label="Footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/auth.html?as=admin">Admin</a>
+    </nav>
+  </footer>
+
+  <script src="/js/common.js"></script>
+</body>
+</html>

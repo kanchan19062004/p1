@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Record | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="topbar" id="topbar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a></header>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h1 id="form-title">Add New Record</h1>
+        <div class="subtitle" id="form-subtitle">Fields marked * are required.</div>
+      </div>
+      <a class="btn btn-secondary" href="/doctor/" id="cancel-top">Back to records</a>
+    </div>
+
+    <div id="alert" class="alert" hidden></div>
+
+    <form id="record-form" novalidate>
+      <section class="card">
+        <h2>Patient details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="patient_email">Patient email <span class="req">*</span></label>
+            <input id="patient_email" name="patient_email" type="email" required>
+            <div class="hint">The patient sees this record when they log in with this email.</div>
+          </div>
+          <div class="field">
+            <label for="patient_name">Patient name <span class="req">*</span></label>
+            <input id="patient_name" name="patient_name" maxlength="120" required>
+          </div>
+          <div class="field">
+            <label for="patient_age">Age</label>
+            <input id="patient_age" name="patient_age" type="number" min="0" max="150" step="1">
+          </div>
+          <div class="field">
+            <label for="patient_gender">Gender</label>
+            <select id="patient_gender" name="patient_gender">
+              <option value="">—</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="patient_phone">Phone</label>
+            <input id="patient_phone" name="patient_phone" type="tel" maxlength="20">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Visit and diagnosis</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="visit_date">Visit date <span class="req">*</span></label>
+            <input id="visit_date" name="visit_date" type="date" required>
+          </div>
+          <div class="field span-2">
+            <label for="chief_complaint">Chief complaint</label>
+            <input id="chief_complaint" name="chief_complaint" maxlength="500" placeholder="Main reason for the visit">
+          </div>
+          <div class="field span-all">
+            <label for="symptoms">Symptoms</label>
+            <textarea id="symptoms" name="symptoms" maxlength="2000"></textarea>
+          </div>
+          <div class="field span-all">
+            <label for="diagnosis">Diagnosis <span class="req">*</span></label>
+            <textarea id="diagnosis" name="diagnosis" maxlength="1000" required></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Vitals</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="bp">Blood pressure</label>
+            <input id="bp" name="bp" maxlength="20" placeholder="120/80">
+          </div>
+          <div class="field">
+            <label for="pulse">Pulse (bpm)</label>
+            <input id="pulse" name="pulse" type="number" min="0" max="300" step="1">
+          </div>
+          <div class="field">
+            <label for="temperature">Temperature (°F)</label>
+            <input id="temperature" name="temperature" type="number" min="25" max="115" step="0.1">
+          </div>
+          <div class="field">
+            <label for="weight_kg">Weight (kg)</label>
+            <input id="weight_kg" name="weight_kg" type="number" min="0" max="500" step="0.1">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="page-header">
+          <h2>Prescription</h2>
+          <button class="btn btn-secondary btn-small" type="button" id="add-rx">+ Add medicine</button>
+        </div>
+        <div id="rx-list"></div>
+        <p class="meta" id="rx-empty">No medicines added.</p>
+      </section>
+
+      <section class="card">
+        <h2>Notes and follow-up</h2>
+        <div class="form-grid">
+          <div class="field span-all">
+            <label for="notes">Notes / advice</label>
+            <textarea id="notes" name="notes" maxlength="4000"></textarea>
+          </div>
+          <div class="field">
+            <label for="next_visit_date">Next visit date</label>
+            <input id="next_visit_date" name="next_visit_date" type="date">
+          </div>
+        </div>
+      </section>
+
+      <div class="form-actions">
+        <a class="btn btn-secondary" href="/doctor/" id="cancel-bottom">Cancel</a>
+        <button class="btn" type="submit" id="save-btn">Save record</button>
+      </div>
+    </form>
+  </main>
+
+  <template id="rx-template">
+    <div class="rx-row">
+      <div class="field">
+        <label>Medicine <span class="req">*</span></label>
+        <input data-key="medicine_name" aria-label="Medicine name" maxlength="200" required>
+      </div>
+      <div class="field">
+        <label>Dosage</label>
+        <input data-key="dosage" aria-label="Dosage" maxlength="100" placeholder="500 mg">
+      </div>
+      <div class="field">
+        <label>Frequency</label>
+        <input data-key="frequency" aria-label="Frequency" maxlength="100" placeholder="Morning, night" list="frequency-options">
+      </div>
+      <div class="field">
+        <label>Days</label>
+        <input data-key="duration_days" aria-label="Duration in days" type="number" min="0" max="3650" step="1">
+      </div>
+      <div class="field">
+        <label>Instructions</label>
+        <input data-key="instructions" aria-label="Instructions" maxlength="500" placeholder="After food">
+      </div>
+      <button class="btn btn-danger btn-small" type="button" data-remove title="Remove medicine">Remove</button>
+    </div>
+  </template>
+
+  <datalist id="frequency-options">
+    <option value="Once a day">
+    <option value="Twice a day">
+    <option value="Three times a day">
+    <option value="Morning">
+    <option value="Morning, night">
+    <option value="Morning, afternoon, night">
+    <option value="As needed">
+  </datalist>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/record-form.js"></script>
+</body>
+</html>

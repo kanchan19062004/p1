@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitals | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="topbar" id="topbar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a></header>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h1>Hospitals</h1>
+        <div class="subtitle">Only active hospitals appear in the doctor sign-up list.</div>
+      </div>
+      <button class="btn" type="button" id="toggle-form">+ Add Hospital</button>
+    </div>
+
+    <div id="alert" class="alert" hidden></div>
+
+    <form class="card" id="hospital-form" novalidate hidden>
+      <h2 id="hospital-form-title">Add hospital</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="h-name">Name <span class="req">*</span></label>
+          <input id="h-name" name="name" maxlength="150" required>
+        </div>
+        <div class="field">
+          <label for="h-phone">Phone</label>
+          <input id="h-phone" name="phone" type="tel" maxlength="20">
+        </div>
+        <div class="field">
+          <label for="h-email">Email</label>
+          <input id="h-email" name="email" type="email">
+        </div>
+        <div class="field">
+          <label for="h-status">Status</label>
+          <select id="h-status" name="status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="field span-all">
+          <label for="h-address">Address <span class="req">*</span></label>
+          <input id="h-address" name="address" maxlength="500" required>
+        </div>
+        <div class="field span-all">
+          <label for="h-description">Description</label>
+          <textarea id="h-description" name="description" maxlength="1000"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-secondary" type="button" id="cancel-form">Cancel</button>
+        <button class="btn" type="submit" id="save-hospital">Save hospital</button>
+      </div>
+    </form>
+
+    <div class="card">
+      <div id="hospitals"></div>
+    </div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/hospitals.js"></script>
+</body>
+</html>

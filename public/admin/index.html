@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Records | Medi-Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <header class="topbar" id="topbar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path class="logo-shield" d="M16 2.5 4.5 6.8v8.4c0 7.3 4.9 12.9 11.5 14.6 6.6-1.7 11.5-7.3 11.5-14.6V6.8z"/><path class="logo-pulse" d="M8.5 16.5h4l2-4.5 3 8 2-3.5h4"/></svg></span>Medi-Vault</a></header>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h1>All Records</h1>
+        <div class="subtitle">Read-only view of records from every hospital.</div>
+      </div>
+      <a class="btn btn-secondary" href="/admin/hospitals.html">Manage hospitals</a>
+    </div>
+
+    <div id="alert" class="alert" hidden></div>
+
+    <form class="card filters" id="filters">
+      <div class="field">
+        <label for="f-hospital">Hospital</label>
+        <select id="f-hospital" name="hospital_id">
+          <option value="">All hospitals</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-doctor">Doctor</label>
+        <select id="f-doctor" name="doctor_id">
+          <option value="">All doctors</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-q">Patient name or email</label>
+        <input id="f-q" name="q" type="search" placeholder="Search…">
+      </div>
+      <div class="field">
+        <label for="f-diagnosis">Diagnosis</label>
+        <input id="f-diagnosis" name="diagnosis" type="search">
+      </div>
+      <div class="field">
+        <label for="f-from">Visit from</label>
+        <input id="f-from" name="from" type="date">
+      </div>
+      <div class="field">
+        <label for="f-to">Visit to</label>
+        <input id="f-to" name="to" type="date">
+      </div>
+      <div class="filter-actions">
+        <button class="btn" type="submit">Apply</button>
+        <button class="btn btn-secondary" type="reset">Clear</button>
+      </div>
+    </form>
+
+    <div class="card">
+      <div id="records"></div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/records-list.js"></script>
+</body>
+</html>
